@@ -68,5 +68,12 @@ final class MyLibraryTests: XCTestCase {
         // Then
         XCTAssertNil(isLuckyNumber)
     }
+    
+//    TODO: Write test to check Weather model data type
+//          Weather.main.temp == type(double)
+    func testIsWeather() async {
+        // Given - mock weather service, Weather response
+        // TODO - get response
+    }
 
 }
