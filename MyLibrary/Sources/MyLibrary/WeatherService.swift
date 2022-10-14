@@ -13,7 +13,6 @@ class WeatherServiceImpl: WeatherService {
                 switch response.result {
                 case let .success(weather):
                     let temperature = weather.main.temp
-                    print("\n $$$ get temp: ", temperature)
                     let temperatureAsInteger = Int(temperature)
                     continuation.resume(with: .success(temperatureAsInteger))
 
