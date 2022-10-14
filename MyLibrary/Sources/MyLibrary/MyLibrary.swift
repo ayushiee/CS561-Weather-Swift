@@ -1,5 +1,5 @@
 public class MyLibrary {
-    private let weatherService: WeatherService
+    internal let weatherService: WeatherService
 
     /// The class's initializer.
     ///
