@@ -25,3 +25,13 @@ class MockWeatherService: WeatherService {
         }
     }
 }
+
+struct MockWeather: Decodable {
+    let main: Main
+
+    struct Main: Decodable {
+        let temp: Double
+    }
+}
+
+
