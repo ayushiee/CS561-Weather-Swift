@@ -1,5 +1,5 @@
 import XCTest
-import MyLibrary
+@testable import MyLibrary
 
 final class MyLibraryTests: XCTestCase {
     func testIsLuckyBecauseWeAlreadyHaveLuckyNumber() async {
@@ -68,12 +68,19 @@ final class MyLibraryTests: XCTestCase {
         // Then
         XCTAssertNil(isLuckyNumber)
     }
-    
-//    TODO: Write test to check Weather model data type
-//          Weather.main.temp == type(double)
-    func testIsWeather() async {
-        // Given - mock weather service, Weather response
-        // TODO - get response
+
+    func testIsTemperatureInt() async throws {
+        let myLibrary = MyLibrary()
+        
+        do {
+            // Get response from actual weather service API call.
+            // getTemperature() converts and returns temperature as an Integer
+            let temperature = try await myLibrary.weatherService.getTemperature()
+            XCTAssertNotNil(temperature)
+            XCTAssert(type(of: temperature) == Int.self)
+        } catch {
+            print(error)
+        }
     }
 
 }
