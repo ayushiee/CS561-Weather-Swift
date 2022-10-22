@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Start mock server
-      run: cd mock && pip3 install requirements.txt && python3 server.py &
+      run: cd mock && pip3 install -r requirements.txt && python3 server.py &
     - name: Build
       run: cd MyLibrary && swift build
     - name: Run tests
