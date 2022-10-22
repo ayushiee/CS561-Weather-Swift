@@ -10,7 +10,7 @@ final class MyLibraryIntegrationTest: XCTestCase {
             let temperature = try await weatherService.getTemperature()
             XCTAssertNotNil(temperature)
         } catch {
-            print(error)
+            XCTAssertNil(error)
         }
     }
     
@@ -26,7 +26,7 @@ final class MyLibraryIntegrationTest: XCTestCase {
             let isLucky = await myLibrary.isLucky(temperature)
             XCTAssertNotNil(isLucky)
         } catch {
-            print(error)
+            XCTAssertNil(error)
         }
     }
 }

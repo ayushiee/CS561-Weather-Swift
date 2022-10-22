@@ -18,8 +18,6 @@ class WeatherServiceImpl: WeatherService {
             api_url = mockUrl
         }
         
-        print(api_url)
-        
         return try await withCheckedThrowingContinuation { continuation in
             AF.request(api_url, method: .get).validate(statusCode: 200..<300).responseDecodable(of: Weather.self) { response in
                 switch response.result {
