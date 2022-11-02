@@ -9,14 +9,17 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  CI: true
+
 jobs:
   build:
-
     runs-on: macos-latest
-
     steps:
     - uses: actions/checkout@v3
+    - name: Start mock server
+      run: cd mock && pip3 install -r requirements.txt && python3 server.py &
     - name: Build
-      run: cd MyLibrary && swift build -v
+      run: cd MyLibrary && swift build
     - name: Run tests
-      run: cd MyLibrary && swift test -v
+      run: cd MyLibrary && swift test
