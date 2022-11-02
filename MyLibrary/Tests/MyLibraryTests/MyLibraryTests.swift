@@ -123,7 +123,7 @@ final class MyLibraryTests: XCTestCase {
             let data = try decoder.decode(Weather.self, from: mockResponse)
             XCTAssert(type(of: data) == Weather.self)
         } catch {
-            print("error: ", error)
+            XCTAssertNil(error)
         }
     }
     
@@ -180,7 +180,7 @@ final class MyLibraryTests: XCTestCase {
             let data = try decoder.decode(Weather.self, from: mockResponse)
             XCTAssertFalse(type(of: data) == Weather.self)
         } catch {
-            print("JSON does not match Weather datatype. Error: ", error)
+            XCTAssertNotNil(error)
         }
     }
 
